@@ -10,6 +10,7 @@ bytes. Standard library only, Python 3.13.
 
 import hashlib
 import os
+import sys
 from pathlib import Path
 
 PICTURE = "entry.png"
@@ -19,7 +20,7 @@ JPEG_TAIL = b"\xff\xd9"
 
 
 def abort(why):
-    print(f"entry failed: {why}", file=__import__("sys").stderr)
+    sys.stderr.write(f"entry failed: {why}\n")
     raise SystemExit(1)
 
 
